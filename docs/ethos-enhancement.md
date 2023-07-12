@@ -29,7 +29,7 @@ kubectl create -f https://solr.apache.org/operator/downloads/crds/v0.5.1/all-wit
 
 kubectl replace -f solr-operator/helm/solr-operator/crds/crds.yaml
 
-helm install solr-operator apache-solr/solr-operator --version 0.5.1 --set image.repository=zhaoqi0406/solr-operator --set image.tag=v0.5.1-ethos
+helm install solr-operator solr-operator/helm/solr --version 0.5.1 --set image.repository=zhaoqi0406/solr-operator --set image.tag=v0.5.1-ethos
 
 helm install example-solr apache-solr/solr --version 0.5.1 \
   --set image.tag=8.3 \
