@@ -31,7 +31,7 @@ kubectl replace -f solr-operator/helm/solr-operator/crds/crds.yaml
 
 helm install solr-operator solr-operator/helm/solr --version 0.5.1 --set image.repository=zhaoqi0406/solr-operator --set image.tag=v0.5.1-ethos
 
-helm install example-solr apache-solr/solr --version 0.5.1 \
+helm install example-solr solr-operator/helm/solr --version 0.5.1 \
   --set image.tag=8.3 \
   --set solrOptions.javaMemory="-Xms300m -Xmx300m" \
   --set addressability.external.method=Ingress \
