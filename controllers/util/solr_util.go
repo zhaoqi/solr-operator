@@ -443,6 +443,7 @@ func GenerateStatefulSet(solrCloud *solr.SolrCloud, solrCloudStatus *solr.SolrCl
 	}
 
 	// Create the Stateful Set
+        runtimeClassStr := "cri-o"
 	stateful := &appsv1.StatefulSet{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:        solrCloud.StatefulSetName(),
@@ -475,6 +476,7 @@ func GenerateStatefulSet(solrCloud *solr.SolrCloud, solrCloudStatus *solr.SolrCl
 					InitContainers: initContainers,
 					HostAliases:    hostAliases,
 					Containers:     containers,
+                                        RuntimeClassName: &runtimeClassStr,
 				},
 			},
 			VolumeClaimTemplates: pvcs,
